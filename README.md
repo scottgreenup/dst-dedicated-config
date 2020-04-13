@@ -54,6 +54,6 @@ This is a cluster token, you will need to generate it. Find it on your machine t
 
 See [the wiki](https://dontstarve.fandom.com/wiki/Guides/Don%E2%80%99t_Starve_Together_Dedicated_Servers#Server_Tokens)
 
-##### Account IDA
+##### Account ID
 
 A players Klei UserID can be found my clicking "Account" in the bottom right of the main menu of DST.
