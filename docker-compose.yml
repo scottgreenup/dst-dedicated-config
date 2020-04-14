@@ -10,140 +10,143 @@ services:
         hostname: overworld
         tty: true
         stdin_open: true
+        #command: env
         command: dst-server start --update=all
         env_file: overworld.env
         environment:
-            NAME: "${SERVER_NAME}"
-            DESCRIPTION: "${SERVER_DESC}"
-            MAX_PLAYERS: "${MAX_PLAYERS}"
-            TICK_RATE: "${TICK_RATE}"
-            PAUSE_WHEN_EMPTY: "true"
-            SERVER_PORT: "${SERVER_OVERWORLD_PORT}"
-            SHARD_ENABLE: "true"
-            SHARD_NAME: "overworld"
-            SHARD_IS_MASTER: "true"
-            SHARD_MASTER_IP: "${COMPOSE_PROJECT_NAME}-overworld"
-            SHARD_ID: 1
-            MODS_OVERRIDES: |
-                return {
-                    ['workshop-758532836'] = { enabled = true },
-                    ['workshop-378160973'] = { enabled = true },
-                    ['workshop-1378549454'] = { enabled = true },
-                }
-            LEVELDATA_OVERRIDES: |
-                return {
-                    desc="The standard Don't Starve experience.",
-                    hideminimap=false,
-                    id="SURVIVAL_TOGETHER",
-                    location="forest",
-                    max_playlist_position=999,
-                    min_playlist_position=0,
-                    name="Default",
-                    numrandom_set_pieces=4,
-                    ordered_story_setpieces={ "Sculptures_1", "Maxwell5" },
-                    override_level_string=false,
-                    overrides={
-                        alternatehunt="default",
-                        angrybees="default",
-                        antliontribute="default",
-                        autumn="default",
-                        bearger="default",
-                        beefalo="default",
-                        beefaloheat="default",
-                        bees="default",
-                        berrybush="default",
-                        birds="default",
-                        boons="default",
-                        branching="default",
-                        butterfly="default",
-                        buzzard="default",
-                        cactus="default",
-                        carrot="default",
-                        catcoon="default",
-                        chess="default",
-                        day="default",
-                        deciduousmonster="default",
-                        deerclops="default",
-                        disease_delay="default",
-                        dragonfly="default",
-                        flint="default",
-                        flowers="default",
-                        frograin="default",
-                        goosemoose="default",
-                        grass="default",
-                        houndmound="default",
-                        hounds="default",
-                        hunt="default",
-                        krampus="default",
-                        layout_mode="LinkNodesByKeys",
-                        liefs="default",
-                        lightning="default",
-                        lightninggoat="default",
-                        loop="default",
-                        lureplants="default",
-                        marshbush="default",
-                        merm="default",
-                        meteorshowers="default",
-                        meteorspawner="default",
-                        moles="default",
-                        mushroom="default",
-                        penguins="default",
-                        perd="default",
-                        petrification="default",
-                        pigs="default",
-                        ponds="default",
-                        prefabswaps_start="default",
-                        rabbits="default",
-                        reeds="default",
-                        regrowth="default",
-                        roads="default",
-                        rock="default",
-                        rock_ice="default",
-                        sapling="default",
-                        season_start="default",
-                        specialevent="default",
-                        spiders="default",
-                        spring="default",
-                        start_location="default",
-                        summer="default",
-                        tallbirds="default",
-                        task_set="default",
-                        tentacles="default",
-                        touchstone="default",
-                        trees="default",
-                        tumbleweed="default",
-                        walrus="default",
-                        weather="default",
-                        wildfires="default",
-                        winter="default",
-                        world_size="default",
-                        wormhole_prefab="wormhole"
-                    },
-                    random_set_pieces={
-                        "Sculptures_2",
-                        "Sculptures_3",
-                        "Sculptures_4",
-                        "Sculptures_5",
-                        "Chessy_1",
-                        "Chessy_2",
-                        "Chessy_3",
-                        "Chessy_4",
-                        "Chessy_5",
-                        "Chessy_6",
-                        "Maxwell1",
-                        "Maxwell2",
-                        "Maxwell3",
-                        "Maxwell4",
-                        "Maxwell6",
-                        "Maxwell7",
-                        "Warzone_1",
-                        "Warzone_2",
-                        "Warzone_3"
-                    },
-                    required_prefabs={ "multiplayer_portal" },
-                    substitutes={  },
-                    version=3
-                }
+        - NAME=${SERVER_NAME}
+        - DESCRIPTION=${SERVER_DESC}
+        - MAX_PLAYERS=${MAX_PLAYERS}
+        - TICK_RATE=${TICK_RATE}
+        - PAUSE_WHEN_EMPTY=true
+        - SERVER_PORT=${SERVER_OVERWORLD_PORT}
+        - SHARD_ENABLE=true
+        - SHARD_NAME=overworld
+        - SHARD_IS_MASTER=true
+        - SHARD_MASTER_IP=${COMPOSE_PROJECT_NAME}-overworld
+        - SHARD_ID=1
+        - |
+          MODS_OVERRIDES=
+          return {
+              ['workshop-758532836'] = { enabled = true },
+              ['workshop-378160973'] = { enabled = true },
+              ['workshop-1378549454'] = { enabled = true },
+          }
+        - |
+          LEVELDATA_OVERRIDES=
+          return {
+              desc="The standard Don't Starve experience.",
+              hideminimap=false,
+              id="SURVIVAL_TOGETHER",
+              location="forest",
+              max_playlist_position=999,
+              min_playlist_position=0,
+              name="Default",
+              numrandom_set_pieces=4,
+              ordered_story_setpieces={ "Sculptures_1", "Maxwell5" },
+              override_level_string=false,
+              overrides={
+                  alternatehunt="default",
+                  angrybees="default",
+                  antliontribute="default",
+                  autumn="default",
+                  bearger="default",
+                  beefalo="default",
+                  beefaloheat="default",
+                  bees="default",
+                  berrybush="default",
+                  birds="default",
+                  boons="default",
+                  branching="default",
+                  butterfly="default",
+                  buzzard="default",
+                  cactus="default",
+                  carrot="default",
+                  catcoon="default",
+                  chess="default",
+                  day="default",
+                  deciduousmonster="default",
+                  deerclops="default",
+                  disease_delay="default",
+                  dragonfly="default",
+                  flint="default",
+                  flowers="default",
+                  frograin="default",
+                  goosemoose="default",
+                  grass="default",
+                  houndmound="default",
+                  hounds="default",
+                  hunt="default",
+                  krampus="default",
+                  layout_mode="LinkNodesByKeys",
+                  liefs="default",
+                  lightning="default",
+                  lightninggoat="default",
+                  loop="default",
+                  lureplants="default",
+                  marshbush="default",
+                  merm="default",
+                  meteorshowers="default",
+                  meteorspawner="default",
+                  moles="default",
+                  mushroom="default",
+                  penguins="default",
+                  perd="default",
+                  petrification="default",
+                  pigs="default",
+                  ponds="default",
+                  prefabswaps_start="default",
+                  rabbits="default",
+                  reeds="default",
+                  regrowth="default",
+                  roads="default",
+                  rock="default",
+                  rock_ice="default",
+                  sapling="default",
+                  season_start="default",
+                  specialevent="default",
+                  spiders="default",
+                  spring="default",
+                  start_location="default",
+                  summer="default",
+                  tallbirds="default",
+                  task_set="default",
+                  tentacles="default",
+                  touchstone="default",
+                  trees="default",
+                  tumbleweed="default",
+                  walrus="default",
+                  weather="default",
+                  wildfires="default",
+                  winter="default",
+                  world_size="default",
+                  wormhole_prefab="wormhole"
+              },
+              random_set_pieces={
+                  "Sculptures_2",
+                  "Sculptures_3",
+                  "Sculptures_4",
+                  "Sculptures_5",
+                  "Chessy_1",
+                  "Chessy_2",
+                  "Chessy_3",
+                  "Chessy_4",
+                  "Chessy_5",
+                  "Chessy_6",
+                  "Maxwell1",
+                  "Maxwell2",
+                  "Maxwell3",
+                  "Maxwell4",
+                  "Maxwell6",
+                  "Maxwell7",
+                  "Warzone_1",
+                  "Warzone_2",
+                  "Warzone_3"
+              },
+              required_prefabs={ "multiplayer_portal" },
+              substitutes={  },
+              version=3
+          }
         ports:
             - "${SERVER_OVERWORLD_PORT}:${SERVER_OVERWORLD_PORT}/udp"
         volumes:
@@ -157,90 +160,93 @@ services:
         hostname: underworld
         tty: true
         stdin_open: true
+        #command: env
         command: dst-server start --update=all
         env_file: underworld.env
         environment:
-            NAME: "${SERVER_NAME} Underworld"
-            MAX_PLAYERS: "${MAX_PLAYERS}"
-            TICK_RATE: "${TICK_RATE}"
-            PAUSE_WHEN_EMPTY: "true"
-            SERVER_PORT: "${SERVER_UNDERWORLD_PORT}"
-            SHARD_ENABLE: "true"
-            SHARD_NAME: "underworld"
-            SHARD_IS_MASTER: "false"
-            SHARD_MASTER_IP: "${COMPOSE_PROJECT_NAME}-overworld"
-            SHARD_ID: 2
-            MODS_OVERRIDES: |
-                return {
-                    ['workshop-758532836'] = { enabled = true },
-                    ['workshop-378160973'] = { enabled = true },
-                    ['workshop-1378549454'] = { enabled = true },
-                }
-            LEVELDATA_OVERRIDES: |
-                return {
-                    background_node_range={ 0, 1 },
-                    desc="Delve into the caves... together!",
-                    hideminimap=false,
-                    id="DST_CAVE",
-                    location="cave",
-                    max_playlist_position=999,
-                    min_playlist_position=0,
-                    name="The Caves",
-                    numrandom_set_pieces=0,
-                    override_level_string=false,
-                    overrides={
-                        banana="default",
-                        bats="default",
-                        berrybush="default",
-                        boons="default",
-                        branching="default",
-                        bunnymen="default",
-                        cave_ponds="default",
-                        cave_spiders="default",
-                        cavelight="default",
-                        chess="default",
-                        disease_delay="default",
-                        earthquakes="default",
-                        fern="default",
-                        fissure="default",
-                        flint="default",
-                        flower_cave="default",
-                        grass="default",
-                        layout_mode="RestrictNodesByKey",
-                        lichen="default",
-                        liefs="default",
-                        loop="default",
-                        marshbush="default",
-                        monkey="default",
-                        mushroom="default",
-                        mushtree="default",
-                        petrification="default",
-                        prefabswaps_start="default",
-                        reeds="default",
-                        regrowth="default",
-                        roads="never",
-                        rock="default",
-                        rocky="default",
-                        sapling="default",
-                        season_start="default",
-                        slurper="default",
-                        slurtles="default",
-                        start_location="caves",
-                        task_set="cave_default",
-                        tentacles="default",
-                        touchstone="default",
-                        trees="default",
-                        weather="default",
-                        world_size="default",
-                        wormattacks="default",
-                        wormhole_prefab="tentacle_pillar",
-                        wormlights="default",
-                        worms="default"
-                    },
-                    required_prefabs={ "multiplayer_portal" },
-                    substitutes={  },
-                    version=3
-                }
+        - NAME=${SERVER_NAME} Underworld
+        - MAX_PLAYERS=${MAX_PLAYERS}
+        - TICK_RATE=${TICK_RATE}
+        - PAUSE_WHEN_EMPTY=true
+        - SERVER_PORT=${SERVER_UNDERWORLD_PORT}
+        - SHARD_ENABLE=true
+        - SHARD_NAME=underworld
+        - SHARD_IS_MASTER=false
+        - SHARD_MASTER_IP=${COMPOSE_PROJECT_NAME}-overworld
+        - SHARD_ID=932554660
+        - |
+          MODS_OVERRIDES=
+          return {
+              ['workshop-758532836'] = { enabled = true },
+              ['workshop-378160973'] = { enabled = true },
+              ['workshop-1378549454'] = { enabled = true },
+          }
+        - |
+          LEVELDATA_OVERRIDES=
+          return {
+              background_node_range={ 0, 1 },
+              desc="Delve into the caves... together!",
+              hideminimap=false,
+              id="DST_CAVE",
+              location="cave",
+              max_playlist_position=999,
+              min_playlist_position=0,
+              name="The Caves",
+              numrandom_set_pieces=0,
+              override_level_string=false,
+              overrides={
+                  banana="default",
+                  bats="default",
+                  berrybush="default",
+                  boons="default",
+                  branching="default",
+                  bunnymen="default",
+                  cave_ponds="default",
+                  cave_spiders="default",
+                  cavelight="default",
+                  chess="default",
+                  disease_delay="default",
+                  earthquakes="default",
+                  fern="default",
+                  fissure="default",
+                  flint="default",
+                  flower_cave="default",
+                  grass="default",
+                  layout_mode="RestrictNodesByKey",
+                  lichen="default",
+                  liefs="default",
+                  loop="default",
+                  marshbush="default",
+                  monkey="default",
+                  mushroom="default",
+                  mushtree="default",
+                  petrification="default",
+                  prefabswaps_start="default",
+                  reeds="default",
+                  regrowth="default",
+                  roads="never",
+                  rock="default",
+                  rocky="default",
+                  sapling="default",
+                  season_start="default",
+                  slurper="default",
+                  slurtles="default",
+                  start_location="caves",
+                  task_set="cave_default",
+                  tentacles="default",
+                  touchstone="default",
+                  trees="default",
+                  weather="default",
+                  world_size="default",
+                  wormattacks="default",
+                  wormhole_prefab="tentacle_pillar",
+                  wormlights="default",
+                  worms="default"
+              },
+              required_prefabs={ "multiplayer_portal" },
+              substitutes={  },
+              version=3
+          }
         ports:
             - "${SERVER_UNDERWORLD_PORT}:${SERVER_UNDERWORLD_PORT}/udp"
         links:
